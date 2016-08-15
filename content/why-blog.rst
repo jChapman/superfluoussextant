@@ -20,6 +20,6 @@ After looking into both static site generators, I stopped for a while until I li
 This further encouraged me to write a blog and I finally took the time to chose between Nikola and Pelican, in the end I really just decided to pick one to get over `analysis paralysis <https://en.wikipedia.org/wiki/Analysis_paralysis>`_ and actually do something (I ended up going with pelican).
 I then wrote some pointless test posts and started looking for a theme, because I didn't like the default one. The resulted in more analysis paralysis, again I just picked one in order to move on (my current theme is `ninja-theme by hmleal <https://github.com/hmleal/ninja-theme>`_ it looks great and is based on `skeleton css <http://getskeleton.com/>`_)
 
-After overcoming two pointless decisions (I relatively painlessly switch to Nikola and switch themes), I bought a domain through google (who knew they sold domains!) and still had no content.
+After overcoming two pointless decisions (I can relatively painlessly switch to Nikola and switch between themes), I bought a domain through google (who knew they sold domains!) and still had no content.
 It wasn't until today that I got the motivation to write actual content for the blog after listening to another excellent `TalkPython podcast, this one about soft skills <https://talkpython.fm/episodes/show/71/soft-skills-the-software-developer-s-life-manual>`_. 
 So now I'm here, I have (some) actual content, and I have (some) motivation to keep writing, who knows what will come next? 

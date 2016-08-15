@@ -14,7 +14,7 @@ What is this blog? What do I want it to be? How can it help others? Why will oth
 
 
 The most helpful blogs that I've read can be put into two categories:
-    1. Problems or tutorials around things that I have working with
+    1. Problems or tutorials around things that I have been working with
     2. Topics I found interesting and that I want to talk about
 
 
