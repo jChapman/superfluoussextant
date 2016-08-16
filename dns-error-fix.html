@@ -51,26 +51,26 @@ I plan to create another blog post in the future that goes through exactly how I
 <li><a class="reference external" href="https://pages.github.com/">Github Pages</a> Free hosting with some very <a class="reference external" href="https://help.github.com/articles/what-is-github-pages/#recommended-limits">reasonable limits</a> (if I reach those limits I'll happily move to a paid host)</li>
 </ul>
 </blockquote>
-<p>I had setup a github repo with a project page by creating a <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch, setting the custom domain, and creating a <tt class="docutils literal">CNAME</tt> file with the following contents:</p>
+<p>I had set up a github repo with a project page by creating a <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch, setting the custom domain, and creating a <tt class="docutils literal">CNAME</tt> file with the following contents:</p>
 <pre class="literal-block">
 superfluoussextant.com
 www.superfluoussextant.com
 </pre>
-<p>I had also setup the following custom resource records through google's DNS settings</p>
+<p>I had also set up the following custom resource records through google's DNS settings</p>
 <div class="figure">
 <img alt="Name: &#64;, Type: A, Data: 192.30.252.153; 192.30.252.154. Name:www, Type: CNAME, Data: jchapman.github.io/superfluoussextant" src="images\dns_records.png" />
 </div>
 </div>
 <div class="section" id="my-issue">
 <h2>My Issue</h2>
-<p>Although I could reach my my blog through the apex domain <tt class="docutils literal">superfluoussextant.com</tt>, but not through the www subdomain <tt class="docutils literal">www.superfluoussextant.com</tt>.
+<p>Although I could reach my blog through the apex domain <tt class="docutils literal">superfluoussextant.com</tt>, but not through the www subdomain <tt class="docutils literal">www.superfluoussextant.com</tt>.
 The error I saw was: <tt class="docutils literal">dns_unresolved_hostname</tt>, you can see how it expressed itself in the image below.</p>
 <div class="figure">
 <img alt="dns_unresolved_hostname" src="images\dns_error.png" />
 </div>
 <p>I had been following the excellent tutorial by Curtis Larson, which can be found <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">here</a>.
 There was a bit of a difference between his tutorial and what I wanted to do: he was using a custom domain for a user github page while I was trying to use a custom domain with a project page.
-These difference between the two is the default url where they are served by github pages.
+The only difference between the two is the default url where they are served by github pages.
 By default user pages are served at <tt class="docutils literal">user.github.io</tt> while project pages are served at <tt class="docutils literal">user.github.io/projectName</tt>.</p>
 </div>
 <div class="section" id="the-fix">
@@ -81,7 +81,7 @@ The correct records are below, the changed one is highlighted.</p>
 <div class="figure">
 <img alt="Fixed dns record: Type: CNAME, Data: jchapman.github.io" src="images\dns_records_fixed.png" />
 </div>
-<p>If you're having a similar issue all you have to do is make sure that your CNAME record points to <tt class="docutils literal">username.github.io</tt> even if you are trying to publish a project page with a custom domain.
+<p>If you're having a similar issue, all you have to do is make sure that your CNAME record points to <tt class="docutils literal">username.github.io</tt> even if you are trying to publish a project page with a custom domain.
 Also remember that it takes some time for DNS record changes, for me it was at least an hour.</p>
 <p>Please let me know if this helped you by commenting below!</p>
 </div>
