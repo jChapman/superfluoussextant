@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Superfluous Sextant</title>
+    <meta name="author" content="Henrique Leal">
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600">
+    <link rel="stylesheet" href="/theme/css/normalize.css">
+    <link rel="stylesheet" href="/theme/css/skeleton.css">
+    <link rel="stylesheet" href="/theme/css/hmleal.css">
+    <link rel="stylesheet" href="/theme/css/pygment.css">
+
+    <link rel="icon" href="/theme/images/favicon.png">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <a href="/" class="header-menu-link">Superfluous Sextant</a>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class"twelve columns">
+<article class="post">
+    <h4 class="post-title"><a href="/dns-error-fix.html">DNS error when going to www subdomain of github pages hosted website</a></h4>
+    <ul class="post-list">
+        <li>15 August 2016</li>
+    </ul>
+
+    <div class="post-content">
+        <img src="">
+        <img alt="dns_unresolved_hostname" src="images\dns_error_small.png" />
+<p>I was having an issue when trying to access my blog through the www subdomain, but I managed to fix it!
+In an effort to help as many people as I can, I have decided to make a blog post every time I find an issue that I couldn't solve trivially through googling.
+I plan to create another blog post in the future that goes through exactly how I created this blog, but first let's see if I can't help someone.</p>
+<div class="section" id="my-stack">
+<h2>My Stack</h2>
+<p>Here is a list of relevant technologies I'm using to bring this blog to you:</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="https://domains.google.com">Google Domains</a> $12/year for a domain managed by google</li>
+<li><a class="reference external" href="https://pages.github.com/">Github Pages</a> Free hosting with some very <a class="reference external" href="https://help.github.com/articles/what-is-github-pages/#recommended-limits">reasonable limits</a> (if I reach those limits I'll happily move to a paid host)</li>
+</ul>
+</blockquote>
+<p>I had setup a github repo with a project page by creating a <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch, setting the custom domain, and creating a <tt class="docutils literal">CNAME</tt> file with the following contents:</p>
+<pre class="literal-block">
+superfluoussextant.com
+www.superfluoussextant.com
+</pre>
+<p>I had also setup the following custom resource records through google's DNS settings</p>
+<div class="figure">
+<img alt="Name: &#64;, Type: A, Data: 192.30.252.153; 192.30.252.154. Name:www, Type: CNAME, Data: jchapman.github.io/superfluoussextant" src="images\dns_records.png" />
+</div>
+</div>
+<div class="section" id="my-issue">
+<h2>My Issue</h2>
+<p>Although I could reach my my blog through the apex domain <tt class="docutils literal">superfluoussextant.com</tt>, but not through the www subdomain <tt class="docutils literal">www.superfluoussextant.com</tt>.
+The error I saw was: <tt class="docutils literal">dns_unresolved_hostname</tt>, you can see how it expressed itself in the image below.</p>
+<div class="figure">
+<img alt="dns_unresolved_hostname" src="images\dns_error.png" />
+</div>
+<p>I had been following the excellent tutorial by Curtis Larson, which can be found <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">here</a>.
+There was a bit of a difference between his tutorial and what I wanted to do: he was using a custom domain for a user github page while I was trying to use a custom domain with a project page.
+These difference between the two is the default url where they are served by github pages.
+By default user pages are served at <tt class="docutils literal">user.github.io</tt> while project pages are served at <tt class="docutils literal">user.github.io/projectName</tt>.</p>
+</div>
+<div class="section" id="the-fix">
+<h2>The Fix</h2>
+<p>Because I was publishing a project page, I strayed from the tutorial by setting my CNAME record to <tt class="docutils literal">jchapman.github.io/superfluoussextant</tt>, however this was not correct.
+Even though I am trying to publish a project page instead of a user page, I still needed to make that CNAME record point to <tt class="docutils literal">jchapman.github.io</tt>.
+The correct records are below, the changed one is highlighted.</p>
+<div class="figure">
+<img alt="Fixed dns record: Type: CNAME, Data: jchapman.github.io" src="images\dns_records_fixed.png" />
+</div>
+<p>If you're having a similar issue all you have to do is make sure that your CNAME record points to <tt class="docutils literal">username.github.io</tt> even if you are trying to publish a project page with a custom domain.
+Also remember that it takes some time for DNS record changes, for me it was at least an hour.</p>
+<p>Please let me know if this helped you by commenting below!</p>
+</div>
+
+    </div>
+</article>
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_identifier = "dns-error-fix.html";
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://superfluoussextant.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Blog contents covered by license:
+            <a href="//creativecommons.org/licenses/by/3.0/deed.pt_BR">Creative Commons Attribution 3.0</a>.
+        </p>
+        <p>
+            Created using <a href="http://getpelican.com/">Pelican</a>,
+        </p>
+    </footer>
+<!-- Google Analytics -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-82486268-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<!-- End Google Analytics Code -->
+</body>
+
+</html>

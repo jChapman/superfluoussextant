@@ -112,6 +112,7 @@ a:hover
 }
 .post-content img
 {
+    padding: 20px;
     display: inline;
     float: left;
 }
