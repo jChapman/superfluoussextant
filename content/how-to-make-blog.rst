@@ -6,9 +6,9 @@ How to set up blog with github pages and google domains for $12 a year
 :category: meta
 :slug: how-to-make-blog
 
-.. image:: https://i.imgur.com/o8bGCus.png
+.. image:: images/blog_backend.png
     :width: 200px
-    :alt: Just a huge question mark
+    :alt: Google Domains + Github Pages
 
 
 My goals when creating this blog were to pay as little as possible, make it look good, and make it easy to write content.
@@ -29,7 +29,8 @@ Step 2: Create your Github repo
 
 Here's what I needed to type to do all of this:
 
-::
+.. code:: bash
+
     git clone https://github.com/jChapman/testBlog.git
     cd testBlog
     git checkout -b gh-pages
@@ -53,7 +54,8 @@ Add a file named ``CNAME`` to your ``gh-pages`` branch it should only contain a 
 There are `some people <http://no-www.org/>`_ who have `strong opinions <http://www.yes-www.org/>`_ about this, I am not one of them just pick one and move on.
 Here is how I added that file in bash:
 
-::
+.. code:: bash
+
     echo superfluoussextant.com > CNAME
     git add .
     git commit -m "Adding custom domain"
