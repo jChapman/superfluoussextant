@@ -12,7 +12,7 @@ TIMEZONE = 'America/New_York'
 
 DEFAULT_LANG = 'en'
 
-THEME = '../themes/hmleal-theme'
+THEME = '../themes/ninja-theme'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
