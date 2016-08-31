@@ -12,7 +12,7 @@ TIMEZONE = 'America/New_York'
 
 DEFAULT_LANG = 'en'
 
-THEME = '../themes/ninja-theme'
+THEME = '../themes/pelican-clean-blog'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -23,13 +23,12 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+         ('Python.org', 'http://python.org/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('globe', 'http://jordan-chapman.com'),
+          ('twitter', 'https://twitter.com/supersextant'),
+          ('github', 'https://github.com/jChapman'),)
 
 DEFAULT_PAGINATION = 5
 
@@ -38,3 +37,10 @@ DEFAULT_PAGINATION = 5
 
 GOOGLE_ANALYTICS = "UA-82486268-1"
 DISQUS_SITENAME = "superfluoussextant"
+
+STATIC_PATHS = ['static']
+
+# Clean Blog Theme Settings
+HEADER_COVER = 'static/soft_blue_glow-darkened.jpg'
+COLOR_SCHEME_CSS = 'tomorrow_night.css'
+

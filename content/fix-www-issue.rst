@@ -11,14 +11,14 @@ DNS error when going to www subdomain of github pages hosted website
 
 
 I was having an issue when trying to access my blog through the www subdomain, but I managed to fix it!
-In an effort to help as many people as I can, I have decided to make a blog post every time I find an issue that I couldn't solve trivially through googling. 
-I plan to create another blog post in the future that goes through exactly how I created this blog, but first let's see if I can't help someone.
+The issue was roughly as described in the title, I was while I was able to access ``superfluoussextant.com``, I was unable to access ``www.superfluoussextant.com``.
+In decided to make a blog post every time I find an issue that I couldn't solve trivially through googling.
 
 
 My Stack
 ~~~~~~~~
 
-Here is a list of relevant technologies I'm using to bring this blog to you: 
+Here is a list of relevant technologies I'm using to bring this blog to you:
 
     - `Google Domains <https://domains.google.com>`_ $12/year for a domain managed by google
     - `Github Pages <https://pages.github.com/>`_ Free hosting with some very `reasonable limits <https://help.github.com/articles/what-is-github-pages/#recommended-limits>`_ (if I reach those limits I'll happily move to a paid host)
@@ -34,7 +34,7 @@ I had set up a github repo with a project page by creating a ``gh-pages`` branch
 I had also set up the following custom resource records through google's DNS settings
 
 
-.. figure:: images\dns_records.png
+.. image:: images\dns_records.png
     :alt: Name: @, Type: A, Data: 192.30.252.153; 192.30.252.154. Name:www, Type: CNAME, Data: jchapman.github.io/superfluoussextant
 
 
