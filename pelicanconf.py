@@ -38,7 +38,7 @@ DEFAULT_PAGINATION = 5
 GOOGLE_ANALYTICS = "UA-82486268-1"
 DISQUS_SITENAME = "superfluoussextant"
 
-STATIC_PATHS = ['static']
+STATIC_PATHS = ['static', 'images']
 
 # Clean Blog Theme Settings
 HEADER_COVER = 'static/soft_blue_glow-darkened.jpg'
