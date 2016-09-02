@@ -6,10 +6,6 @@ What is this blog?
 :category: meta
 :slug: what-is-blog
 
-.. image:: https://i.imgur.com/o8bGCus.png
-    :width: 200px
-    :alt: Just a huge question mark
-
 What is this blog? What do I want it to be? How can it help others? Why will others read it? Why will they find it useful?
 
 
