@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>How to set up blog with github pages and google domains for $12 a year</title>
+        <title>How to set up blog with github pages and google domains</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="http://superfluoussextant.com/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 
 
 
-        <meta name="description" content="My goals when creating this blog were to pay as little as possible, make it look good, and make it easy to write content. Because of ...">
+        <meta name="description" content="My goals when creating this blog were To pay as little as possible Make it look good Make it easy to write content. Because of these ...">
 
         <meta name="author" content="Jordan Chapman">
 
@@ -48,18 +48,18 @@
 	<meta property="og:type" content="article">
             <meta property="article:author" content="http://superfluoussextant.com/author/jordan-chapman.html">
 	<meta property="og:url" content="http://superfluoussextant.com/how-to-make-blog.html">
-	<meta property="og:title" content="How to set up blog with github pages and google domains for $12 a year">
+	<meta property="og:title" content="How to set up blog with github pages and google domains">
 	<meta property="article:published_time" content="2016-08-16 00:00:00-04:00">
-            <meta property="og:description" content="My goals when creating this blog were to pay as little as possible, make it look good, and make it easy to write content. Because of ...">
+            <meta property="og:description" content="My goals when creating this blog were To pay as little as possible Make it look good Make it easy to write content. Because of these ...">
 
             <meta property="og:image" content="http://superfluoussextant.com/static/soft_blue_glow-darkened.jpg">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@supersextant">
-        <meta name="twitter:title" content="How to set up blog with github pages and google domains for $12 a year">
+        <meta name="twitter:title" content="How to set up blog with github pages and google domains">
 
             <meta name="twitter:image" content="http://superfluoussextant.com/static/soft_blue_glow-darkened.jpg">
 
-            <meta name="twitter:description" content="My goals when creating this blog were to pay as little as possible, make it look good, and make it easy to write content. Because of ...">
+            <meta name="twitter:description" content="My goals when creating this blog were To pay as little as possible Make it look good Make it easy to write content. Because of these ...">
 </head>
 
 <body>
@@ -95,7 +95,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>How to set up blog with github pages and google domains for $12 a year</h1>
+                        <h1>How to set up blog with github pages and google domains</h1>
                         <span class="meta">Posted by
                                 <a href="http://superfluoussextant.com/author/jordan-chapman.html">Jordan Chapman</a>
                              on Tue 16 August 2016
@@ -113,10 +113,16 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <img alt="Google Domains + Github Pages" src="images/blog_backend.png" style="width: 200px;" />
-<p>My goals when creating this blog were to pay as little as possible, make it look good, and make it easy to write content.
-Because of these goals I chose to use <a class="reference external" href="http://domains.google.com">google domains</a> and <a class="reference external" href="https://pages.github.com/">Github Pages</a> (also <a class="reference external" href="getpelican.com">Pelican</a> for content, but that's for another blog post).
-To help get my blog up and running I used a <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">tutorial</a> I found on <a class="reference external" href="http://www.curtismlarson.com/blog/">Curtis Lawson's Blog</a>, however I noticing a couple differences I decided to write my own tutorial, and here it is.</p>
+        <p>My goals when creating this blog were</p>
+<blockquote>
+<ol class="arabic simple">
+<li>To pay as little as possible</li>
+<li>Make it look good</li>
+<li>Make it easy to write content.</li>
+</ol>
+</blockquote>
+<p>Because of these goals I chose to use <a class="reference external" href="http://domains.google.com">google domains</a> and <a class="reference external" href="https://pages.github.com/">Github Pages</a> (also <a class="reference external" href="getpelican.com">Pelican</a> for content, but that's for another blog post).
+To help get my blog up and running I used a <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">tutorial</a> I found on <a class="reference external" href="http://www.curtismlarson.com/blog/">Curtis Lawson's Blog</a>, however I noticing a couple differences I decided to write my own tutorial.</p>
 <div class="section" id="step-1-get-a-domain">
 <h2>Step 1: Get a domain</h2>
 <p>Go to <a class="reference external" href="http://domains.google.com">http://domains.google.com</a> and register a domain there. The .com domains are just $12 a year, plus it's through google.</p>
@@ -127,10 +133,10 @@ To help get my blog up and running I used a <a class="reference external" href="
 <ul class="simple">
 <li>Create a new repo on github, name it what ever you want.</li>
 <li>Clone the new repo, create a branch named <tt class="docutils literal"><span class="pre">gh-pages</span></tt> and add a simple index.html file to that newly created branch.</li>
-<li>Push up the branch</li>
+<li>Push up the new branch</li>
 </ul>
 </blockquote>
-<p>Here's what I needed to type to do all of this:</p>
+<p>Here's what I typed to accomplish those steps (will probably be different for you)</p>
 <pre class="code bash literal-block">
 git clone https://github.com/jChapman/testBlog.git
 <span class="nb">cd</span> testBlog
@@ -140,7 +146,7 @@ git add index.html
 git commit -m <span class="s2">&quot;Added simple index page&quot;</span>
 git push --set-upstream origin gh-pages
 </pre>
-<p>We can test that our page is being served by Github Pages by going to the repo in Github and going to the settings page.
+<p>We can then test that our page is being served by Github Pages by going to the settings page of the repo on on Github.com.
 If we scroll down to the Github Pages section you should the following:</p>
 <div class="figure">
 <img alt="Your site is published at https://jchpaman.github.io/testBlog" src="images\first_success.png" />
@@ -148,8 +154,9 @@ If we scroll down to the Github Pages section you should the following:</p>
 </div>
 <div class="section" id="step-3-setting-up-your-repo-for-a-custom-domain">
 <h2>Step 3: Setting up your repo for a custom domain</h2>
-<p>Add a file named <tt class="docutils literal">CNAME</tt> to your <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch it should only contain a single line either <tt class="docutils literal">yoursitename.com</tt> or <tt class="docutils literal">www.yoursitename.com</tt> depending on how you want to site to be presented.
-There are <a class="reference external" href="http://no-www.org/">some people</a> who have <a class="reference external" href="http://www.yes-www.org/">strong opinions</a> about this, I am not one of them just pick one and move on.
+<p>Next we want to use the domain we purchased instead of the github.io url.
+First a file named <tt class="docutils literal">CNAME</tt> to your <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch. The <tt class="docutils literal">CNAME</tt> file should only contain a single line either <tt class="docutils literal">yoursitename.com</tt> or <tt class="docutils literal">www.yoursitename.com</tt> depending on how you want to site to be presented.
+There are <a class="reference external" href="http://no-www.org/">some people</a> who have <a class="reference external" href="http://www.yes-www.org/">strong opinions</a> about this, I am not one of them.
 Here is how I added that file in bash:</p>
 <pre class="code bash literal-block">
 <span class="nb">echo</span> superfluoussextant.com &gt; CNAME
@@ -157,15 +164,16 @@ git add .
 git commit -m <span class="s2">&quot;Adding custom domain&quot;</span>
 git push
 </pre>
-<p>You can confirm that you did this correctly by going to your repo page on Github and going to settings.
-If you scroll down to the Github Pages section you should see something like the following</p>
+<p>You can confirm that you did this correctly by going to the settings page of the repo on Github.com.
+If you scroll down to the Github Pages section, you should see something like the following</p>
 <div class="figure">
 <img alt="Your site is ready to be published at https://superfluoussextant.com" src="images\second_success.png" />
 </div>
 </div>
 <div class="section" id="step-4-dns-settings-for-your-domain">
 <h2>Step 4: DNS settings for your domain</h2>
-<p>Go to <a class="reference external" href="domains.google.com">domains.google.com</a> and click on Configure DNS next to your domain name.
+<p>Finally we need to change the DNS setting for our domain to point to the Github server hosting our content.
+Go to <a class="reference external" href="domains.google.com">domains.google.com</a> and click on &quot;Configure DNS&quot; next to your domain name.
 Now scroll down to Custom resource records, add the following records:</p>
 <blockquote>
 <ul class="simple">
@@ -177,9 +185,9 @@ Now scroll down to Custom resource records, add the following records:</p>
 <img alt="Just read above" src="images\third_success.png" />
 <p class="caption">You records should look something like this</p>
 </div>
-<p>The first record is an <strong>A</strong> lias record which points your domain at specified ip addresses, in this case thse are the Github pages ips.
+<p>The first record is an Alias record which points your domain at the specified ip addresses, in this case we use the Github Pages addresses of <tt class="docutils literal">192.30.252.153</tt> and <tt class="docutils literal">192.30.252.154</tt>.
 The <tt class="docutils literal">&#64;</tt> simply refers to your whole domain.</p>
-<p>The second record is a canonical name record which servers to map alias names to a canonical name. We want to map to our Github pages url.</p>
+<p>The second record is a canonical name record which maps alias names to a canonical name. We want to map to our Github pages url.</p>
 <div class="note">
 <p class="first admonition-title">Note</p>
 <p class="last">Like I said in my <a class="reference external" href="http://superfluoussextant.com/dns-error-fix.html">previous blog post</a> even though this is a project page and is hosted at <tt class="docutils literal">yourname.github.io/projectName</tt>, make sure that your CNAME record points to <tt class="docutils literal">yourname.github.io</tt>.</p>
@@ -188,7 +196,7 @@ The <tt class="docutils literal">&#64;</tt> simply refers to your whole domain.<
 <p class="first admonition-title">Note</p>
 <p class="last">It make take some times for the DNS settings to be applied. It has taken me at least an hour, but give it at least 3 until you give up and start blaming yourself.</p>
 </div>
-<p>After waiting an appropriate amount of time, test your website by going to your custom domain and see if you get your content.</p>
+<p>After waiting an appropriate amount of time, test your website by going to your custom domain and see if your content is served.</p>
 </div>
 
     </article>

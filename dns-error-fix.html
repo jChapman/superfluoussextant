@@ -115,20 +115,19 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <img alt="dns_unresolved_hostname" src="images\dns_error_small.png" />
-<p>I was having an issue when trying to access my blog through the www subdomain, but I managed to fix it!
-The issue was roughly as described in the title, I was while I was able to access <tt class="docutils literal">superfluoussextant.com</tt>, I was unable to access <tt class="docutils literal">www.superfluoussextant.com</tt>.
-In decided to make a blog post every time I find an issue that I couldn't solve trivially through googling.</p>
+        <p>I was having an issue when trying to access my blog through the www subdomain, but I managed to fix it!
+The issue was roughly as described in the title, I was able to access <tt class="docutils literal">superfluoussextant.com</tt>, but I was unable to access <tt class="docutils literal">www.superfluoussextant.com</tt>.
+I decided to make a blog post every time I find an issue that I couldn't solve trivially through googling, here goes the first one.</p>
 <div class="section" id="my-stack">
 <h2>My Stack</h2>
 <p>Here is a list of relevant technologies I'm using to bring this blog to you:</p>
 <blockquote>
 <ul class="simple">
 <li><a class="reference external" href="https://domains.google.com">Google Domains</a> $12/year for a domain managed by google</li>
-<li><a class="reference external" href="https://pages.github.com/">Github Pages</a> Free hosting with some very <a class="reference external" href="https://help.github.com/articles/what-is-github-pages/#recommended-limits">reasonable limits</a> (if I reach those limits I'll happily move to a paid host)</li>
+<li><a class="reference external" href="https://pages.github.com/">Github Pages</a> Free hosting with some very <a class="reference external" href="https://help.github.com/articles/what-is-github-pages/#recommended-limits">reasonable limits</a></li>
 </ul>
 </blockquote>
-<p>I had set up a github repo with a project page by creating a <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch, setting the custom domain, and creating a <tt class="docutils literal">CNAME</tt> file with the following contents:</p>
+<p>I have set up a github repo with a project page by creating a <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch, setting the custom domain, and creating a <tt class="docutils literal">CNAME</tt> file with the following contents:</p>
 <pre class="literal-block">
 superfluoussextant.com
 www.superfluoussextant.com
@@ -138,20 +137,19 @@ www.superfluoussextant.com
 </div>
 <div class="section" id="my-issue">
 <h2>My Issue</h2>
-<p>Although I could reach my blog through the apex domain <tt class="docutils literal">superfluoussextant.com</tt>, but not through the www subdomain <tt class="docutils literal">www.superfluoussextant.com</tt>.
-The error I saw was: <tt class="docutils literal">dns_unresolved_hostname</tt>, you can see how it expressed itself in the image below.</p>
+<p>Although I could reach my blog through the apex domain <tt class="docutils literal">superfluoussextant.com</tt>, I couldn't reach it through the www subdomain <tt class="docutils literal">www.superfluoussextant.com</tt>.
+The error I saw was <tt class="docutils literal">dns_unresolved_hostname</tt>, you can see how it expressed itself in the image below (actual manifestation depends on DNS).</p>
 <div class="figure">
 <img alt="dns_unresolved_hostname" src="images\dns_error.png" />
 </div>
-<p>I had been following the excellent tutorial by Curtis Larson, which can be found <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">here</a>.
-There was a bit of a difference between his tutorial and what I wanted to do: he was using a custom domain for a user github page while I was trying to use a custom domain with a project page.
-The only difference between the two is the default url where they are served by github pages.
+<p>I had been following the <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">excellent tutorial</a> by Curtis Larson, but there was a difference between his tutorial and what I wanted to do: he was using a custom domain for a user github page while I was trying to use a custom domain with a project page.
+(I thought) the only difference between the two was the default url where they are served by github pages.
 By default user pages are served at <tt class="docutils literal">user.github.io</tt> while project pages are served at <tt class="docutils literal">user.github.io/projectName</tt>.</p>
 </div>
 <div class="section" id="the-fix">
 <h2>The Fix</h2>
 <p>Because I was publishing a project page, I strayed from the tutorial by setting my CNAME record to <tt class="docutils literal">jchapman.github.io/superfluoussextant</tt>, however this was not correct.
-Even though I am trying to publish a project page instead of a user page, I still needed to make that CNAME record point to <tt class="docutils literal">jchapman.github.io</tt>.
+Even though I was trying to publish a project page instead of a user page, I still needed to make the CNAME record point to <tt class="docutils literal">jchapman.github.io</tt>.
 The correct records are below, the changed one is highlighted.</p>
 <div class="figure">
 <img alt="Fixed dns record: Type: CNAME, Data: jchapman.github.io" src="images\dns_records_fixed.png" />
