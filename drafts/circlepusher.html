@@ -53,12 +53,12 @@
 	<meta property="article:published_time" content="2016-09-19 00:00:00-04:00">
             <meta property="og:description" content="What is generative art and why am I interested in it? In general generative art is defined as art that has been (at least in some part) ...">
 
-            <meta property="og:image" content="http://superfluoussextant.com/static/soft_blue_glow-darkened.jpg">
+            <meta property="og:image" content="http://superfluoussextant.com//images/rootedMoonInverse.png">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@supersextant">
         <meta name="twitter:title" content="Circlepusher: Making generative art in python">
 
-            <meta name="twitter:image" content="http://superfluoussextant.com/static/soft_blue_glow-darkened.jpg">
+            <meta name="twitter:image" content="http://superfluoussextant.com//images/rootedMoonInverse.png">
 
             <meta name="twitter:description" content="What is generative art and why am I interested in it? In general generative art is defined as art that has been (at least in some part) ...">
 </head>
@@ -91,7 +91,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('static/soft_blue_glow-darkened.jpg')">
+        <header class="intro-header" style="background-image: url('/images/rootedMoonInverse.png')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -121,7 +121,81 @@ I think of it as art that is created by some system, but the artist (not the sys
 While the artist can tweak some parts of the system (usually the inputs) they do not have full control of the generation of the artwork.</p>
 <p>I recently discovered generative art after reading an excellent article by Anders Hoff, titled <a class="reference external" href="http://inconvergent.net/generative">On Generative Algorithms</a>.
 I found it to be a very interesting read, well worth your time, and it inspired me to make my own generative algorithms.
-In particular the first</p>
+In particular the <a class="reference external" href="http://inconvergent.net/generative/hyphae/">first example, Hyphae</a>, interested me.
+I thought, hey I bet I can do that in a couple lines of python!</p>
+</div>
+<div class="section" id="enter-circlepusher">
+<h2>Enter Circlepusher</h2>
+<p>The goal is to push some circles around on a canvas that don't intersect with each other and randomly split into smaller circles to be pushed.
+Let's start by making those circles, we need something to store a location, a radius, and some random angle</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;
+        :param radius: radius of circle in pixels
+        :param location: two tuple of x,y
+        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span>
+</pre>
+<p>What good's a circle if you can't see it (and is it even really a circle at all)?
+There's probably other ways to draw circles, but I'm going to use PIL(low) because it was pretty simple.
+Also I'm going to use some globals because I don't care if this code is pretty, I want it to be easy to hack.</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'L'</span><span class="p">,</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="s1">'white'</span><span class="p">)</span>
+<span class="n">image_draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;
+        :param radius: radius of circle in pixels
+        :param location: two tuple of x,y
+        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">image_draw</span><span class="o">.</span><span class="n">ellipse</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">),</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+
+<span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+<p>Now we have a nice big black circle in the middle of our canvas, here's some docs on <a class="reference external" href="https://pillow.readthedocs.io/en/latest/reference/Image.html#PIL.Image.new">PIL.Image.new</a> (the L we specify tells Pillow that this will be a grayscale image, see <a class="reference external" href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#concept-modes">PIL Modes</a> if you want to learn more).</p>
+<p>Now it's time to push it (push it real good)!</p>
+<pre class="code python literal-block">
+<span class="o">...</span>
+
+<span class="n">Class</span> <span class="n">Circle</span><span class="p">:</span>
+
+<span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Let's step by 1/4 of the radius each time</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">/</span> <span class="mi">4</span>
+        <span class="n">rad_angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">step</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">rad_angle</span><span class="p">),</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">step</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rad_angle</span><span class="p">))</span>
+
+<span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
 </div>
 
     </article>
