@@ -207,7 +207,7 @@ Also I'm going to use some globals because I don't care if this code is pretty, 
     <span class="n">circle</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
 <span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
-<img alt="Just a single line starting at the center of a white square and continuing out to the edge" src="images\genline.png" />
+<img alt="Just a single line starting at the center of a white square and continuing out to the edge" src="/images/genline.png" />
 <p>Woo! We have a single clock hand, not too impressive huh?
 However if we continue to increase the number of iterations we'll soon run off the edge of the canvas, let's prevent that by adding a check to the push function</p>
 <pre class="code python literal-block">
@@ -263,7 +263,7 @@ Let's make 10!</p>
         <span class="n">circle</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
         <span class="n">circle</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
 </pre>
-<img alt="Just a bunch of lines starting in the center" src="images\clockhands.png" />
+<img alt="Just a bunch of lines starting in the center" src="/images/clockhands.png" />
 <p>Well... it is a thing, but not a very good thing. Let's make it so that they don't step on each other.
 I'll start by adding the concept of deactivating a circle, if it bumps into another circle, let's not keep trying to push it.
 Note that the method of detecting &quot;collision&quot; is pretty &quot;stupid&quot; since I'm just checking a single pixel ahead of us, we could still collide at any of the other pixels we're about to paint.
@@ -347,7 +347,7 @@ Finally let's add a little spin to the movement of our circles, a curve which wi
 </pre>
 <p>Now we have lines that curve beautifully, don't intersect with each other and stop without going over the edge of the canvas.
 Finally we have something worth tinkering with.</p>
-<img alt="Some fantastically curvy lines" src="images\curvylines.png" />
+<img alt="Some fantastically curvy lines" src="/images/curvylines.png" />
 </div>
 <div class="section" id="making-babies">
 <h2>Making Babies</h2>
@@ -417,7 +417,7 @@ While we're at it let's randomize the starting location of our circles.</p>
 <span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
 <p>Not the prettiest thing, but nice and noisey.</p>
-<img alt="Some fantastically curvy lines with babies!" src="images\funkylines.png" />
+<img alt="Some fantastically curvy lines with babies!" src="/images/funkylines.png" />
 <p>We can really start to see a problem with our blank spot checking, we're clearly pushing circles on top of other circles all the time!
 Let's fix this by checking a square of pixels in front of us before stepping.</p>
 </div>
