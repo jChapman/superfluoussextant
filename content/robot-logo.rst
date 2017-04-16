@@ -16,7 +16,7 @@ Some Background
 ===============
 
 Robot framework is an awesome, open source test automation framework that I have used a couple of times.
-While the framework is great (and the `website <robotframework.org>`_ is um interesting), the current logo is terrible.
+While the framework is great (and the `website <http://robotframework.org>`_ is um interesting), the current logo is terrible.
 
 .. image:: images\bad-robot-logo.png
     :alt: I'm sure my mot--er creator loves me
@@ -58,7 +58,7 @@ Alright time to just focus on the robot!
 .. image:: images\logo-progression2.png
     :alt: Some better bad logos
 
-At this point I took a break from my robo-logo (rogo?) and made a been and orange for some orange mead I made. 
+At this point I took a break from my robo-logo (rogo?) and made a bee and orange for some orange mead I made. 
 I think these are the best that I've ever made.
 
 * Bee
