@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>Generative Art Setup</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://superfluoussextant.com/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="http://superfluoussextant.com/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="http://superfluoussextant.com/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+        <meta name="description" content="What is generative art? In general generative art is defined as art that has been (at least in some part) created by using an autonomous...">
+
+        <meta name="author" content="Jordan Chapman">
+
+        <meta name="tags" content="programming">
+        <meta name="tags" content="art">
+        <meta name="tags" content="python">
+        <meta name="tags" content="PIL">
+        <meta name="tags" content="Pillow">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="Superfluous Sextant">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://superfluoussextant.com/author/jordan-chapman.html">
+	<meta property="og:url" content="http://superfluoussextant.com/generative-art-intro.html">
+	<meta property="og:title" content="Generative Art Setup">
+	<meta property="article:published_time" content="2017-04-24 00:00:00-04:00">
+            <meta property="og:description" content="What is generative art? In general generative art is defined as art that has been (at least in some part) created by using an autonomous...">
+
+            <meta property="og:image" content="http://superfluoussextant.com//images/rootedMoonInverse.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@supersextant">
+        <meta name="twitter:title" content="Generative Art Setup">
+
+            <meta name="twitter:image" content="http://superfluoussextant.com//images/rootedMoonInverse.png">
+
+            <meta name="twitter:description" content="What is generative art? In general generative art is defined as art that has been (at least in some part) created by using an autonomous...">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://superfluoussextant.com/">Superfluous Sextant</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/images/rootedMoonInverse.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Generative Art Setup</h1>
+                        <span class="meta">Posted by
+                                <a href="http://superfluoussextant.com/author/jordan-chapman.html">Jordan Chapman</a>
+                             on Mon 24 April 2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <div class="section" id="what-is-generative-art">
+<h2>What is generative art?</h2>
+<p>In general <a class="reference external" href="https://en.wikipedia.org/wiki/Generative_art">generative art</a> is defined as art that has been (at least in some part) created by using an autonomous system.
+I think of it as art that is created by some system, but the artist (not the system although some may argue that the system is the true artist) doesn't know exactly how it will turn out.
+While the artist can tweak some parts of the system (usually the inputs) they do not have full control of the generation of the artwork.</p>
+<p>I recently discovered generative art after reading an excellent article by Anders Hoff, titled <a class="reference external" href="http://inconvergent.net/generative">On Generative Algorithms</a>.
+I found it to be a very interesting read, well worth your time, and it inspired me to make my own generative algorithms.
+In particular the <a class="reference external" href="http://inconvergent.net/generative/hyphae/">first example, Hyphae</a>, interested me.
+I thought, hey I bet I can do that in a couple lines of python!</p>
+<p>After playing around with a couple of examples I extracted a basic framework for creating generative art that I thought was worth sharing.</p>
+</div>
+<div class="section" id="the-tools-of-the-trade">
+<h2>The Tools of the Trade</h2>
+<p>Python, for prototyping it's hard to beat python in terms of speed of development/iteration and available libraries.</p>
+<p>Pillow, PIL was Python Image Library until it stopped getting updated. Pillow is a fork of PIL that is actively maintained. Pillow allows us to quickly create, edit, and save images.</p>
+<p>MoviePy, as mentioned in a <a class="reference external" href="http://superfluoussextant.com/making-gifs-with-python.html">previous post</a> is a great way to generate GIFs from a series of still images. I use it to (guess what) generate gifs from still images.</p>
+</div>
+<div class="section" id="using-the-tools">
+<h2>Using the Tools</h2>
+<p>Here's an outline of the steps that my Python script does for each invocation</p>
+<ol class="arabic simple">
+<li>Create a new directory relative to this script, call it the current date so that the name won't conflict and the directory are in a sane order</li>
+<li>Copy the current version of this script to the newly created directory, this allows me to jump back to a previous state if I liked the results or if my more recent changes were too drastic or if the output of a previous version was particularly interesting.</li>
+<li>Do the work, for each frame/step draw on a Pillow Image.</li>
+<li>Save the current image, make the name something that will allow for some kind of order such as appending the current itteration to the file name such as appending the current iteration to the file name.</li>
+<li>Create the GIF using MoviePy.</li>
+</ol>
+</div>
+<div class="section" id="the-script">
+<h2>The Script</h2>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Get the current time, use it as the directory we save everything in</span>
+<span class="n">SAVE_DIR</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H.%M.%S&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">SAVE_DIR</span><span class="p">)</span>  <span class="c1"># Save a copy of this script so that we can recreate stuff</span>
+
+<span class="c1"># The size of the image</span>
+<span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span>
+<span class="c1"># Create a new image</span>
+<span class="n">CURRENT_IMAGE</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'RGB'</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">)</span>
+
+<span class="c1"># Missing: initial setup</span>
+
+<span class="c1"># How many iterations?</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1"># The main loop, mess with the image for each iteration</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_ITERATIONS</span><span class="p">):</span>
+    <span class="c1"># Manipulate the image before saving it</span>
+    <span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">,</span> <span class="s2">&quot;{}.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+
+    <span class="c1"># Every so often print out something so we get a sense of progress</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Iteration {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">gifit</span><span class="p">(</span><span class="n">image_loc</span><span class="p">,</span> <span class="n">gif_name</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Creates a GIF from all the pngs in the provide image_loc &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">glob</span>
+    <span class="kn">import</span> <span class="nn">moviepy.editor</span> <span class="kn">as</span> <span class="nn">mpy</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">image_loc</span><span class="p">)</span>
+    <span class="n">file_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'*.png'</span><span class="p">)</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.png'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">clip</span> <span class="o">=</span> <span class="n">mpy</span><span class="o">.</span><span class="n">ImageSequenceClip</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+    <span class="n">clip</span><span class="o">.</span><span class="n">write_gif</span><span class="p">(</span><span class="s1">'{}.gif'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gif_name</span><span class="p">),</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+
+
+<span class="n">gifit</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">,</span> <span class="s1">'final'</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Here's an example using the basic script from above. We first place randomly
+colored pixels then for each iteration we select pixels in random order and
+have them &quot;fight&quot; against an adjacent pixel. The winning pixel transfers their
+color to the losing pixel. In this first example we chose the pixel whose red
+value is larger as the winner.</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Get the current time, use it as the directory we save everything in</span>
+<span class="n">SAVE_DIR</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H.%M.%S&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">SAVE_DIR</span><span class="p">)</span>  <span class="c1"># Save a copy of this script so that we can recreate stuff</span>
+
+<span class="c1"># The size of the image</span>
+<span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span>
+<span class="c1"># Create a new image</span>
+<span class="n">CURRENT_IMAGE</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'RGB'</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">)</span>
+<span class="n">PIXELS</span> <span class="o">=</span> <span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>  <span class="c1"># Get a modifiable representation of the image</span>
+
+<span class="c1"># Initial setup, make each pixel a random color</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">PIXELS</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_random_adjacent</span><span class="p">(</span><span class="n">loc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Gets a random adjacent pixel that is not out of bounds&quot;&quot;&quot;</span>
+    <span class="n">_x</span> <span class="o">=</span> <span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">_y</span> <span class="o">=</span> <span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">adjacent_x</span><span class="p">,</span> <span class="n">adjacent_y</span> <span class="o">=</span> <span class="p">[(</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">_x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">_y</span><span class="p">),</span> <span class="p">(</span><span class="n">_x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">_y</span><span class="p">)][</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">adjacent_x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">adjacent_x</span> <span class="o">=</span> <span class="n">IMAGE_SIZE</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">adjacent_x</span> <span class="o">&gt;</span> <span class="n">IMAGE_SIZE</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">adjacent_x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">adjacent_y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">adjacent_y</span> <span class="o">=</span> <span class="n">IMAGE_SIZE</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">adjacent_y</span> <span class="o">&gt;</span> <span class="n">IMAGE_SIZE</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">adjacent_y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">adjacent_x</span><span class="p">,</span> <span class="n">adjacent_y</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">determine_winner</span><span class="p">(</span><span class="n">one_pixel</span><span class="p">,</span> <span class="n">another_pixel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pick a winning color given two colors&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">one_pixel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">another_pixel</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">one_pixel</span>
+    <span class="k">return</span> <span class="n">another_pixel</span>
+
+
+<span class="c1"># How many iterations?</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1"># The main loop, mess with the image for each iteration</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_ITERATIONS</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">k</span><span class="o">=</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">k</span><span class="o">=</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">opponent_location</span> <span class="o">=</span> <span class="n">get_random_adjacent</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+
+            <span class="n">winner</span> <span class="o">=</span> <span class="n">determine_winner</span><span class="p">(</span><span class="n">PIXELS</span><span class="p">[</span><span class="n">location</span><span class="p">],</span> <span class="n">PIXELS</span><span class="p">[</span><span class="n">opponent_location</span><span class="p">])</span>
+
+            <span class="c1"># Update pixels</span>
+            <span class="n">PIXELS</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="o">=</span> <span class="n">winner</span>
+            <span class="n">PIXELS</span><span class="p">[</span><span class="n">opponent_location</span><span class="p">]</span> <span class="o">=</span> <span class="n">winner</span>
+
+    <span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">,</span> <span class="s2">&quot;{}.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+
+    <span class="c1"># Every so often print out something so we get a sense of progress</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Iteration {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="o">...</span>
+
+<span class="n">gifit</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">,</span> <span class="s1">'final'</span><span class="p">)</span>
+</pre>
+<p>Here is the result of this script:</p>
+<img alt="Fighting pixels" src="images\red_fight.gif" />
+<p>You might first expect that the system would become a single large red square,
+however it resolves into some red, some pink, and even some yellow pixels. This
+is because each of them have the same value for red and towards the end the
+winner is simply whoever was the first chosen pixel.</p>
+<p>The beauty of our setup is that we can quickly change a couple lines and create
+a completely different system. Let's modify the <cite>determine_winner</cite> function so
+that only the truly &quot;red-ist&quot; pixel wins.</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">determine_winner</span><span class="p">(</span><span class="n">one_pixel</span><span class="p">,</span> <span class="n">another_pixel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pick a winning color given two colors&quot;&quot;&quot;</span>
+    <span class="n">one_sum</span> <span class="o">=</span> <span class="n">one_pixel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">one_pixel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">one_pixel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">other_sum</span> <span class="o">=</span> <span class="n">another_pixel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">another_pixel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">another_pixel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">one_sum</span> <span class="o">&gt;</span> <span class="n">other_sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">one_pixel</span>
+    <span class="k">return</span> <span class="n">another_pixel</span>
+</pre>
+<p>... and here's the result, the other colors quickly disappear and it becomes a fight to the true red (255, 0, 0)</p>
+<img alt="Fighting pixels, spoiler: red wins" src="images\super_red.gif" />
+<p>Finally for your enjoyment here's a large version of the previous red fighting</p>
+<img alt="Fighting pixels, spoiler: red wins" src="images\big_red.gif" />
+</div>
+<div class="section" id="bonus">
+<h2>Bonus</h2>
+<p>Some suggested additions</p>
+<div class="section" id="don-t-clobber-pixels">
+<h3>Don't clobber pixels</h3>
+<p>If a pixel has already &quot;fought&quot; this iteration don't make it &quot;fight&quot; again</p>
+<p>To do this, just keep a map of all those that have fought</p>
+<pre class="code python literal-block">
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_ITERATIONS</span><span class="p">):</span>
+    <span class="n">fought</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">k</span><span class="o">=</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">k</span><span class="o">=</span><span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">opponent_location</span> <span class="o">=</span> <span class="n">get_random_adjacent</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">fought</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">opponent_location</span> <span class="ow">in</span> <span class="n">fought</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">winner</span> <span class="o">=</span> <span class="n">determine_winner</span><span class="p">(</span><span class="n">PIXELS</span><span class="p">[</span><span class="n">location</span><span class="p">],</span> <span class="n">PIXELS</span><span class="p">[</span><span class="n">opponent_location</span><span class="p">])</span>
+
+            <span class="c1"># Update pixels</span>
+            <span class="n">PIXELS</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="o">=</span> <span class="n">winner</span>
+            <span class="n">PIXELS</span><span class="p">[</span><span class="n">opponent_location</span><span class="p">]</span> <span class="o">=</span> <span class="n">winner</span>
+
+            <span class="c1"># Update fought map</span>
+            <span class="n">fought</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">fought</span><span class="p">[</span><span class="n">opponent_location</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">CURRENT_IMAGE</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">,</span> <span class="s2">&quot;{}.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+
+    <span class="c1"># Every so often print out something so we get a sense of progress</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Iteration {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="open-the-gif">
+<h3>Open the gif</h3>
+<p>After running the script it's nice to see the generated gif to get immediate feedback.</p>
+<p>To do this I would simply run a command at the bottom of the script that opened an application that can handle gifs</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="c1"># Or chrome or okular or ...</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'preview final.gif'</span><span class="p">)</span>
+
+<span class="c1"># Or, in Windows</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'start final.gif'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+<div class="section" id="final-thoughts">
+<h2>Final Thoughts</h2>
+<p>Have fun and mess around with this script. I've found this setup very conducive
+to quick iteration and experimentation that can quickly produce some very
+interesting results. If you made anything similar I would love to see it, I
+find these kinds of animated images very interesting and relaxing.</p>
+</div>
+
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="http://superfluoussextant.com/tag/programming.html">programming</a>, <a href="http://superfluoussextant.com/tag/art.html">art</a>, <a href="http://superfluoussextant.com/tag/python.html">python</a>, <a href="http://superfluoussextant.com/tag/pil.html">PIL</a>, <a href="http://superfluoussextant.com/tag/pillow.html">Pillow</a></p>
+        </div>
+
+    <hr>
+
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'superfluoussextant';
+                var disqus_identifier = 'generative-art-intro.html';
+                var disqus_url = 'http://superfluoussextant.com/generative-art-intro.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//superfluoussextant.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="http://jordan-chapman.com">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/supersextant">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/jChapman">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a>.
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="http://superfluoussextant.com/theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://superfluoussextant.com/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://superfluoussextant.com/theme/js/clean-blog.min.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-82486268-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'superfluoussextant';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
