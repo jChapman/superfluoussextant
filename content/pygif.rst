@@ -4,16 +4,16 @@ How to Make Gifs Using Python
 :date: 2017-04-16
 :tags: programming, python, imagemagick, gif, jif, animation
 :category: programming
-:slug: pygif
+:slug: making-gifs-with-python
 
 Intro
 =====
 
-While gifs are an outdated format and terribly inefficient they remain a popular way to communicate on the internet. 
+While gifs are an outdated format and terribly inefficient, they remain a popular way to communicate on the internet. 
 With so many ways to create, modify, and inspect images (`Pillow <https://pillow.readthedocs.io/en/latest/>`_, `OpenCV <http://opencv.org/>`_, and even `scipy <http://www.scipy-lectures.org/advanced/image_processing/>`_)
 in Python it seems only natural to want to make gifs in the same environment in which you created or edited your image.
-Like many tasks you want to accomplish in python, someone has already done it and there is a library to assist you. 
-Also like many other tasks you want to accomplish in python there are several different packages that can be used to create gifs.
+Like many tasks you want to accomplish in Python, someone has already done it and there are libraries to assist you. 
+Also like many other tasks you want to accomplish in Python there are several different packages that can be used to create gifs.
 
 
 The Setup
@@ -37,7 +37,7 @@ Some assumptions
 
 * Python 3
 * You are in the directory with the images you want to turn into a gif
-* All the images are named so that lined up alphabetically they are in the order they should be shown in the gif (in the above image ``brains_40.png`` comes first then ``brainz_50.png`` and so on until ``brainz_183.png`` which will be the last frame)
+* All the images are named so that lined up numerically they are in the order they should be shown in the gif (in the above image ``brains_40.png`` comes first then ``brainz_50.png`` and so on until ``brainz_183.png`` which will be the last frame)
 
 
 
@@ -77,7 +77,7 @@ Option 2: MoviePy
 
 I discovered `MoviePy <https://zulko.github.io/moviepy/index.html>`_ while looking to solve this problem and it looks very promising. 
 While it looks like it's primarily designed to make or edit videos it has gif making capability.
-What's more it can even use ImageMagick as a `back end for image conversion <https://zulko.github.io/moviepy/install.html#other-optional-but-useful-dependencies>`_ (otherwise it uses `imageio <https://imageio.readthedocs.io/>`_)
+What's more it can even use ImageMagick as a `back end for image conversion <https://zulko.github.io/moviepy/install.html#other-optional-but-useful-dependencies>`_ (otherwise it uses `imageio <https://imageio.readthedocs.io/>`_).
 
 .. code:: python
 
@@ -102,16 +102,16 @@ The creator of MoviePy has some interesting examples of using it to create gifs 
 Other Options
 =============
 
-Here are some other options I looked into, but stopped digging into for various reasons.
+Here are some other options I looked into, but didn't use for various reasons.
 
 Pillow
 ------
 
 .. https://stackoverflow.com/questions/24688802/saving-an-animated-gif-in-pillow
 
-I use Pillow to generate the images, it would be great to use it to generate the gifs. 
+I use `Pillow to generate images <https://pillow.readthedocs.io>`_ , it would be great to use it to generate the gifs. 
 It even appears that gifs are one of the `"fully supported formats" <https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html>`_ !
-I even had hope that I could progressivly save frames as they were created with the `append_images` `argument <https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html#saving>`_ .
+I even had hope that I could progressively save frames as they were created with the `append_images` `argument <https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html#saving>`_ .
 However the more I looked into creating gifs with Pillow the more `bugs I found <https://github.com/python-pillow/Pillow/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20gif>`_ including the fact that simply re-saving a gif increases the size of the gif.
 
 For now I'm going to stick to one of the other options listed above because of the known (and unknown) issues in Pillow.
@@ -122,6 +122,7 @@ Wand
 ----
 
 `Wand <http://docs.wand-py.org/>`_ is a Python wrapper for ImageMagick, which sounds great for anyone used to ImageMagick (aka convert). However it is `not compatible <https://github.com/dahlia/wand/issues/316>`_ with the latest version of ImageMagick and does not appear to be actively maintained. 
+
 (Maybe there is something to be said for reasons that `GraphicsMagick split from ImageMagick <http://www.graphicsmagick.org/FAQ.html#how-does-graphicsmagick-differ-from-imagemagick>`_)
 
 

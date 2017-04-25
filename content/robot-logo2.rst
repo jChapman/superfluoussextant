@@ -5,6 +5,7 @@ Logo Design Review
 :tags: logo, creative, inkscape, graphic design, robot framework
 :category: creative
 :slug: robot-logo2
+:status: draft
 
 I'm Bad At Completing Things
 ============================
