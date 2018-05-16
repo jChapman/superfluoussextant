@@ -18,6 +18,8 @@
         <!-- Code highlight color scheme -->
             <link href="http://superfluoussextant.com/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
 
+            <!-- CSS specified by the user -->
+            <link href="http://superfluoussextant.com/static/sextant.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +44,8 @@
         <meta name="tags" content="python">
         <meta name="tags" content="PIL">
         <meta name="tags" content="Pillow">
+        <meta name="tags" content="gif">
+        <meta name="tags" content="MoviePy">
 
 	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="Superfluous Sextant">
@@ -154,7 +158,7 @@ I thought, hey I bet I can do that in a couple lines of python!</p>
 <span class="c1"># Get the current time, use it as the directory we save everything in</span>
 <span class="n">SAVE_DIR</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H.%M.%S&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">)</span>
-<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">SAVE_DIR</span><span class="p">)</span>  <span class="c1"># Save a copy of this script so that we can recreate stuff</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="n">SAVE_DIR</span><span class="p">)</span>  <span class="c1"># Save a copy of this script so that we can recreate stuff</span>
 
 <span class="c1"># The size of the image</span>
 <span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span>
@@ -208,7 +212,7 @@ value is larger as the winner.</p>
 <span class="c1"># Get the current time, use it as the directory we save everything in</span>
 <span class="n">SAVE_DIR</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H.%M.%S&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">)</span>
-<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="n">SAVE_DIR</span><span class="p">)</span>  <span class="c1"># Save a copy of this script so that we can recreate stuff</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="n">SAVE_DIR</span><span class="p">)</span>  <span class="c1"># Save a copy of this script so that we can recreate stuff</span>
 
 <span class="c1"># The size of the image</span>
 <span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span>
@@ -271,7 +275,7 @@ value is larger as the winner.</p>
 <span class="n">gifit</span><span class="p">(</span><span class="n">SAVE_DIR</span><span class="p">,</span> <span class="s1">'final'</span><span class="p">)</span>
 </pre>
 <p>Here is the result of this script:</p>
-<img alt="Fighting pixels" src="images\red_fight.gif" />
+<img alt="Fighting pixels" src="imagesred_fight.gif" />
 <p>You might first expect that the system would become a single large red square,
 however it resolves into some red, some pink, and even some yellow pixels. This
 is because each of them have the same value for red and towards the end the
@@ -289,9 +293,9 @@ that only the truly &quot;red-ist&quot; pixel wins.</p>
     <span class="k">return</span> <span class="n">another_pixel</span>
 </pre>
 <p>... and here's the result, the other colors quickly disappear and it becomes a fight to the true red (255, 0, 0)</p>
-<img alt="Fighting pixels, spoiler: red wins" src="images\super_red.gif" />
+<img alt="Fighting pixels, spoiler: red wins" src="imagessuper_red.gif" />
 <p>Finally for your enjoyment here's a large version of the previous red fighting</p>
-<img alt="Fighting pixels, spoiler: red wins" src="images\big_red.gif" />
+<img alt="Fighting pixels, spoiler: red wins" src="imagesbig_red.gif" />
 </div>
 <div class="section" id="bonus">
 <h2>Bonus</h2>
@@ -355,7 +359,7 @@ find these kinds of animated images very interesting and relaxing.</p>
     </article>
 
         <div class="tags">
-            <p>tags: <a href="http://superfluoussextant.com/tag/programming.html">programming</a>, <a href="http://superfluoussextant.com/tag/art.html">art</a>, <a href="http://superfluoussextant.com/tag/python.html">python</a>, <a href="http://superfluoussextant.com/tag/pil.html">PIL</a>, <a href="http://superfluoussextant.com/tag/pillow.html">Pillow</a></p>
+            <p>tags: <a href="http://superfluoussextant.com/tag/programming.html">programming</a>, <a href="http://superfluoussextant.com/tag/art.html">art</a>, <a href="http://superfluoussextant.com/tag/python.html">python</a>, <a href="http://superfluoussextant.com/tag/pil.html">PIL</a>, <a href="http://superfluoussextant.com/tag/pillow.html">Pillow</a>, <a href="http://superfluoussextant.com/tag/gif.html">gif</a>, <a href="http://superfluoussextant.com/tag/moviepy.html">MoviePy</a></p>
         </div>
 
     <hr>

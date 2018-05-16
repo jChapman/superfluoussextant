@@ -18,6 +18,8 @@
         <!-- Code highlight color scheme -->
             <link href="http://superfluoussextant.com/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
 
+            <!-- CSS specified by the user -->
+            <link href="http://superfluoussextant.com/static/sextant.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -127,9 +129,9 @@ Also like many other tasks you want to accomplish in Python there are several di
 <p>I will present a couple options and show you how to use each of them to generate a gif from a series of still pictures.
 This is my common use case, I have a series of images which represent some changing system and I want to animate the change.</p>
 <p>For example here is a series of images I made:</p>
-<img alt="A bunch of similar images" src="images\gifThis.png" />
+<img alt="A bunch of similar images" src="imagesgifThis.png" />
 <p>... and here is a generated gif:</p>
-<img alt="An animated gif" src="images\gifThis.gif" />
+<img alt="An animated gif" src="imagesgifThis.gif" />
 <p>Some assumptions</p>
 <ul class="simple">
 <li>Python 3</li>
@@ -180,7 +182,7 @@ What's more it can even use ImageMagick as a <a class="reference external" href=
 </pre>
 <p>I have found that it <a class="reference external" href="https://github.com/Zulko/moviepy/issues/190">fails to make gifs out of greyscale images</a> (the example I gave above was using greyscale images).
 Other than that one issue MoviePy seems very nice, even printing out the backend used and a progress bar when creating the gif.</p>
-<img alt="[MoviePy] Building file outputName.gif with imageio 100%|##########| 51/51 [00:00&lt;00:00, 53.29it/s]" src="images\moviepyoutput.png" />
+<img alt="[MoviePy] Building file outputName.gif with imageio 100%|##########| 51/51 [00:00&lt;00:00, 53.29it/s]" src="imagesmoviepyoutput.png" />
 <p>The creator of MoviePy has some interesting examples of using it to create gifs for example <a class="reference external" href="https://zulko.github.io/blog/2014/09/20/vector-animations-with-python/">Vector Animations With Python</a> and <a class="reference external" href="https://zulko.github.io/blog/2014/11/29/data-animations-with-python-and-moviepy/">Data Animations With Python and MoviePy</a> .</p>
 </div>
 <div class="section" id="other-options">

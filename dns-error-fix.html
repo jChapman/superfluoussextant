@@ -18,6 +18,8 @@
         <!-- Code highlight color scheme -->
             <link href="http://superfluoussextant.com/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
 
+            <!-- CSS specified by the user -->
+            <link href="http://superfluoussextant.com/static/sextant.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -133,14 +135,14 @@ superfluoussextant.com
 www.superfluoussextant.com
 </pre>
 <p>I had also set up the following custom resource records through google's DNS settings</p>
-<img alt="Name: &#64;, Type: A, Data: 192.30.252.153; 192.30.252.154. Name:www, Type: CNAME, Data: jchapman.github.io/superfluoussextant" src="images\dns_records.png" />
+<img alt="Name: &#64;, Type: A, Data: 192.30.252.153; 192.30.252.154. Name:www, Type: CNAME, Data: jchapman.github.io/superfluoussextant" src="imagesdns_records.png" />
 </div>
 <div class="section" id="my-issue">
 <h2>My Issue</h2>
 <p>Although I could reach my blog through the apex domain <tt class="docutils literal">superfluoussextant.com</tt>, I couldn't reach it through the www subdomain <tt class="docutils literal">www.superfluoussextant.com</tt>.
 The error I saw was <tt class="docutils literal">dns_unresolved_hostname</tt>, you can see how it expressed itself in the image below (actual manifestation depends on DNS).</p>
 <div class="figure">
-<img alt="dns_unresolved_hostname" src="images\dns_error.png" />
+<img alt="dns_unresolved_hostname" src="imagesdns_error.png" />
 </div>
 <p>I had been following the <a class="reference external" href="http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/">excellent tutorial</a> by Curtis Larson, but there was a difference between his tutorial and what I wanted to do: he was using a custom domain for a user github page while I was trying to use a custom domain with a project page.
 (I thought) the only difference between the two was the default url where they are served by github pages.
@@ -152,7 +154,7 @@ By default user pages are served at <tt class="docutils literal">user.github.io<
 Even though I was trying to publish a project page instead of a user page, I still needed to make the CNAME record point to <tt class="docutils literal">jchapman.github.io</tt>.
 The correct records are below, the changed one is highlighted.</p>
 <div class="figure">
-<img alt="Fixed dns record: Type: CNAME, Data: jchapman.github.io" src="images\dns_records_fixed.png" />
+<img alt="Fixed dns record: Type: CNAME, Data: jchapman.github.io" src="imagesdns_records_fixed.png" />
 </div>
 <p>If you're having a similar issue, all you have to do is make sure that your CNAME record points to <tt class="docutils literal">username.github.io</tt> even if you are trying to publish a project page with a custom domain.
 Also remember that it takes some time for DNS record changes, for me it was at least an hour.</p>

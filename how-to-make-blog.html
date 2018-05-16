@@ -18,6 +18,8 @@
         <!-- Code highlight color scheme -->
             <link href="http://superfluoussextant.com/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
 
+            <!-- CSS specified by the user -->
+            <link href="http://superfluoussextant.com/static/sextant.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -149,7 +151,7 @@ git push --set-upstream origin gh-pages
 <p>We can then test that our page is being served by Github Pages by going to the settings page of the repo on on Github.com.
 If we scroll down to the Github Pages section you should the following:</p>
 <div class="figure">
-<img alt="Your site is published at https://jchpaman.github.io/testBlog" src="images\first_success.png" />
+<img alt="Your site is published at https://jchpaman.github.io/testBlog" src="imagesfirst_success.png" />
 </div>
 </div>
 <div class="section" id="step-3-setting-up-your-repo-for-a-custom-domain">
@@ -167,7 +169,7 @@ git push
 <p>You can confirm that you did this correctly by going to the settings page of the repo on Github.com.
 If you scroll down to the Github Pages section, you should see something like the following</p>
 <div class="figure">
-<img alt="Your site is ready to be published at https://superfluoussextant.com" src="images\second_success.png" />
+<img alt="Your site is ready to be published at https://superfluoussextant.com" src="imagessecond_success.png" />
 </div>
 </div>
 <div class="section" id="step-4-dns-settings-for-your-domain">
@@ -182,7 +184,7 @@ Now scroll down to Custom resource records, add the following records:</p>
 </ul>
 </blockquote>
 <div class="figure">
-<img alt="Just read above" src="images\third_success.png" />
+<img alt="Just read above" src="imagesthird_success.png" />
 <p class="caption">You records should look something like this</p>
 </div>
 <p>The first record is an Alias record which points your domain at the specified ip addresses, in this case we use the Github Pages addresses of <tt class="docutils literal">192.30.252.153</tt> and <tt class="docutils literal">192.30.252.154</tt>.
