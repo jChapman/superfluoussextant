@@ -31,7 +31,7 @@ I have set up a github repo with a project page by creating a ``gh-pages`` branc
 I had also set up the following custom resource records through google's DNS settings
 
 
-.. image:: images\dns_records.png
+.. image:: images/dns_records.png
     :alt: Name: @, Type: A, Data: 192.30.252.153; 192.30.252.154. Name:www, Type: CNAME, Data: jchapman.github.io/superfluoussextant
 
 
@@ -42,7 +42,7 @@ Although I could reach my blog through the apex domain ``superfluoussextant.com`
 The error I saw was ``dns_unresolved_hostname``, you can see how it expressed itself in the image below (actual manifestation depends on DNS).
 
 
-.. figure:: images\dns_error.png
+.. figure:: images/dns_error.png
     :alt: dns_unresolved_hostname
 
 I had been following the `excellent tutorial <http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/>`_ by Curtis Larson, but there was a difference between his tutorial and what I wanted to do: he was using a custom domain for a user github page while I was trying to use a custom domain with a project page.
@@ -56,7 +56,7 @@ Because I was publishing a project page, I strayed from the tutorial by setting 
 Even though I was trying to publish a project page instead of a user page, I still needed to make the CNAME record point to ``jchapman.github.io``.
 The correct records are below, the changed one is highlighted.
 
-.. figure:: images\dns_records_fixed.png
+.. figure:: images/dns_records_fixed.png
     :alt: Fixed dns record: Type: CNAME, Data: jchapman.github.io
 
 

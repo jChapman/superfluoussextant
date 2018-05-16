@@ -24,13 +24,13 @@ This is my common use case, I have a series of images which represent some chang
 
 For example here is a series of images I made:
 
-.. image:: images\gifThis.png
+.. image:: images/gifThis.png
     :alt: A bunch of similar images
 
 
 ... and here is a generated gif:
 
-.. image:: images\gifThis.gif
+.. image:: images/gifThis.gif
     :alt: An animated gif
 
 Some assumptions
@@ -94,7 +94,7 @@ What's more it can even use ImageMagick as a `back end for image conversion <htt
 I have found that it `fails to make gifs out of greyscale images <https://github.com/Zulko/moviepy/issues/190>`_ (the example I gave above was using greyscale images).
 Other than that one issue MoviePy seems very nice, even printing out the backend used and a progress bar when creating the gif.
 
-.. image:: images\moviepyoutput.png
+.. image:: images/moviepyoutput.png
     :alt: [MoviePy] Building file outputName.gif with imageio 100%|##########| 51/51 [00:00<00:00, 53.29it/s]
 
 The creator of MoviePy has some interesting examples of using it to create gifs for example `Vector Animations With Python <https://zulko.github.io/blog/2014/09/20/vector-animations-with-python/>`_ and `Data Animations With Python and MoviePy <https://zulko.github.io/blog/2014/11/29/data-animations-with-python-and-moviepy/>`_ .

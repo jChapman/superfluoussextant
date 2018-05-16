@@ -43,7 +43,7 @@ Here's what I typed to accomplish those steps (will probably be different for yo
 We can then test that our page is being served by Github Pages by going to the settings page of the repo on on Github.com.
 If we scroll down to the Github Pages section you should the following:
 
-.. figure:: images\first_success.png
+.. figure:: images/first_success.png
     :alt: Your site is published at https://jchpaman.github.io/testBlog
 
 
@@ -65,7 +65,7 @@ Here is how I added that file in bash:
 You can confirm that you did this correctly by going to the settings page of the repo on Github.com.
 If you scroll down to the Github Pages section, you should see something like the following
 
-.. figure:: images\second_success.png
+.. figure:: images/second_success.png
     :alt: Your site is ready to be published at https://superfluoussextant.com
 
 
@@ -79,7 +79,7 @@ Now scroll down to Custom resource records, add the following records:
     - Name: @, Type: A, Data: 192.30.252.153; 192.30.252.154
     - Name: www, Type: CNAME, Data: username.github.io
 
-.. figure:: images\third_success.png
+.. figure:: images/third_success.png
     :alt: Just read above
 
     You records should look something like this

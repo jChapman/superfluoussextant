@@ -2,7 +2,7 @@ Generative Art Setup
 ####################
 
 :date: 2017-04-24
-:tags: programming, art, python, PIL, Pillow
+:tags: programming, art, python, PIL, Pillow, gif, MoviePy
 :category: programming
 :slug: generative-art-intro
 :header_cover: /images/rootedMoonInverse.png
@@ -175,7 +175,7 @@ value is larger as the winner.
 
 Here is the result of this script:
 
-.. image:: images\red_fight.gif
+.. image:: images/red_fight.gif
     :alt: Fighting pixels
 
 You might first expect that the system would become a single large red square,
@@ -199,13 +199,13 @@ that only the truly "red-ist" pixel wins.
 
 ... and here's the result, the other colors quickly disappear and it becomes a fight to the true red (255, 0, 0)
 
-.. image:: images\super_red.gif
+.. image:: images/super_red.gif
     :alt: Fighting pixels, spoiler: red wins
 
 
 Finally for your enjoyment here's a large version of the previous red fighting
 
-.. image:: images\big_red.gif
+.. image:: images/big_red.gif
     :alt: Fighting pixels, spoiler: red wins
 
 Bonus

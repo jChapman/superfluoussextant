@@ -18,7 +18,7 @@ Some Background
 Robot framework is an awesome, open source test automation framework that I have used a couple of times.
 While the framework is great (and the `website <http://robotframework.org>`_ is um interesting), the current logo is terrible.
 
-.. image:: images\bad-robot-logo.png
+.. image:: images/bad-robot-logo.png
     :alt: I'm sure my mot--er creator loves me
 
 Yup that's a picture of a toy robot roughly cut out of it's background. 
@@ -44,7 +44,7 @@ Ugh, these are rough. From top to bottom, here we go
 * If I turn it sideways maybe it'll look like it's 3d. Nope it's almost screaming "please kill me"
 * I'll make a pickle robot! Gerkin => Pickle => Pickle Robot => Robot Framework. Wait I can barely make a pickle or a robot, how am I going to make a pickle robot?
 
-.. image:: images\logo-progression1.png
+.. image:: images/logo-progression1.png
     :alt: Just some really bad logos
 
 Alright time to just focus on the robot!
@@ -55,7 +55,7 @@ Alright time to just focus on the robot!
 * Oh look, I should probably use these colors (except not for the main color for some reason...). And the border should be really thick!
 * Let's see how that border looks on the robot arm!
 
-.. image:: images\logo-progression2.png
+.. image:: images/logo-progression2.png
     :alt: Some better bad logos
 
 At this point I took a break from my robo-logo (rogo?) and made a bee and orange for some orange mead I made. 
@@ -65,17 +65,17 @@ I think these are the best that I've ever made.
 * Orange
 * What happens when a bee loves an orange very much
 
-.. image:: images\benge.png
+.. image:: images/benge.png
     :alt: Some solid, non robot logos
 
 Back to the ole robot drawing board, let's revisit some old ideas and try to improve them with big thick outlines!
 
-.. image:: images\logo-progression3.png
+.. image:: images/logo-progression3.png
     :alt: Some thick lined logos (still bad)
 
 All of those look too much like the steam logo, let's try making a full robot!
 
-.. image:: images\logo-progression4.png
+.. image:: images/logo-progression4.png
     :alt: Eh, they're big and ugly
 
 What I've Learned
