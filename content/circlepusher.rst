@@ -1,12 +1,11 @@
 Circlepusher: Making generative art in python
 #############################################
 
-:date: 2016-09-19
+:date: 2017-09-19
 :tags: programming, art, python, PIL, Pillow
 :category: programming
 :slug: circlepusher
 :header_cover: /images/rootedMoonInverse.png
-:status: draft
 
 What is generative art and why am I interested in it?
 =====================================================
@@ -342,9 +341,6 @@ Not the prettiest thing, but nice and noisey.
 .. image:: /images/funkylines.png
     :alt: Some fantastically curvy lines with babies!
 
-We can really start to see a problem with our blank spot checking, we're clearly pushing circles on top of other circles all the time!
-Let's fix this by checking a line of pixels in front of us as we step.
 
-
-
-
+To Be Continued...
+==================
