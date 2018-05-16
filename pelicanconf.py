@@ -44,3 +44,6 @@ STATIC_PATHS = ['static', 'images']
 HEADER_COVER = 'static/soft_blue_glow-darkened.jpg'
 COLOR_SCHEME_CSS = 'tomorrow_night.css'
 
+# Custom Settings
+CSS_OVERRIDE = 'static/sextant.css'
+
