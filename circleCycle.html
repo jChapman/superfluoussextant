@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title>The Circle Cycle</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="http://superfluoussextant.com/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="http://superfluoussextant.com/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="http://superfluoussextant.com/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+            <!-- CSS specified by the user -->
+            <link href="http://superfluoussextant.com/static/sextant.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        <!-- AdSense --> 
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3650269794514290",
+            enable_page_level_ads: true
+          });
+        </script>
+
+
+
+        <meta name="description" content="Intro After reading an article from Benjamin Kovach where he described the process and steps behind his latest work I decided to do a...">
+
+        <meta name="author" content="Jordan Chapman">
+
+        <meta name="tags" content="programming">
+        <meta name="tags" content="art">
+        <meta name="tags" content="python">
+        <meta name="tags" content="PIL">
+        <meta name="tags" content="Pillow">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="Superfluous Sextant">
+
+	<meta property="og:type" content="article">
+            <meta property="article:author" content="http://superfluoussextant.com/author/jordan-chapman.html">
+	<meta property="og:url" content="http://superfluoussextant.com/circleCycle.html">
+	<meta property="og:title" content="The Circle Cycle">
+	<meta property="article:published_time" content="2018-05-18 00:00:00-04:00">
+            <meta property="og:description" content="Intro After reading an article from Benjamin Kovach where he described the process and steps behind his latest work I decided to do a...">
+
+            <meta property="og:image" content="http://superfluoussextant.com/static/someWorms.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@supersextant">
+        <meta name="twitter:title" content="The Circle Cycle">
+
+            <meta name="twitter:image" content="http://superfluoussextant.com/static/someWorms.png">
+
+            <meta name="twitter:description" content="Intro After reading an article from Benjamin Kovach where he described the process and steps behind his latest work I decided to do a...">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://superfluoussextant.com/">Superfluous Sextant</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('http://superfluoussextant.com//static/someWorms.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>The Circle Cycle</h1>
+                        <span class="meta">Posted by
+                                <a href="http://superfluoussextant.com/author/jordan-chapman.html">Jordan Chapman</a>
+                             on Fri 18 May 2018
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <div class="section" id="intro">
+<h2>Intro</h2>
+<p>After reading an article from Benjamin Kovach where he <a class="reference external" href="https://www.kovach.me/posts/2018-04-30-blotch.html">described the process
+and steps behind his latest work</a> I decided to do a
+writeup of my latest attempt at generative art: <a class="reference external" href="http://superfluoussextant.com/madCircles.html">Mad Circles</a>.</p>
+<p>If you didn't read the previous article, here is the rough goal of what I was
+trying to re-create:</p>
+<div class="figure" style="width: 600px">
+<a class="reference external image-reference" href="http://manoloide.com/works/pluscode/"><img alt="A multitude of overlapping circles on a large framed print" src="http://manoloide.com/works/pluscode/img/pluscode_01.jpg" /></a>
+<p class="caption">Original work by Manolo Gamboa Naon</p>
+</div>
+</div>
+<div class="section" id="the-setup">
+<h2>The Setup</h2>
+<p>I started off with the same basic setup from my <a class="reference external" href="http://superfluoussextant.com/madCircles.html">Generative Art Setup</a> post. With it I can run my python codeg
+and a folder will be created containing the final work and the code used to
+generate that work. Because of this setup I can easily walk through the
+progression of my work and also jump back to a previous state if I hit a dead
+end or simply want to dive deeper into a certain piece.g</p>
+<!-- note::g
+I decided to try out Python 3.7 because of a new feature, `Data Classes
+<https://www.python.org/dev/peps/pep-0557/>`_ (I think this might be the
+killer feature that will make people start using typing in Python). If
+you want to try out any of my code samples you'll have to have at least
+3.7 -->
+</div>
+<div class="section" id="the-process">
+<h2>The Process</h2>
+<div class="section" id="starting-up">
+<h3>Starting Up</h3>
+<p>My typical setup generates gifs so that I can see the progress of the image
+being generated (also they just look cool), so the first couple of images are
+animated.</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2021.28.22/final.gif?raw=true" />
+<p class="caption">Pushing some circles around... pretty boring</p>
+</div>
+<p>Then I realized that I couldn't create gifs like I normally do, because the process looks like the following:</p>
+<blockquote>
+<ul class="simple">
+<li>Move every entity</li>
+<li>Draw every entity</li>
+<li>Save off a frame</li>
+<li>Repeat...</li>
+</ul>
+</blockquote>
+<p>However my goal was to draw a multitude of circle &quot;tentacles&quot; on top of one
+another so I couldn't do my typical step all then draw all until completion.
+Instead I needed to step a single &quot;tentacle&quot; until completion and draw at
+each step before moving on to other tentacles. Because of this (and my goal
+to create a static image) I stopped producing gifs and just output the final
+image.</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2021.51.35/final.png?raw=truetarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2021.51.35/final.png?raw=true" />
+<p class="caption">Circles of random radius get pushed and the color changes randomly at
+each step while the radius decreases, I think the random colors make this
+look pretty awful.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.05.06/final.png?raw=truetarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.05.06/final.png?raw=true" />
+<p class="caption">Stop picking random colors (pick from a set), make the circles take up
+less of the canvas (smaller initial radius), and finally introduce a
+random small curve</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.08.29/final.png?raw=truetarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.08.29/final.png?raw=true" />
+<p class="caption">Randomly change our &quot;curve&quot; (the amount we turn by each step), make the canvas much larger.</p>
+</div>
+<p>I decided that I didn't want that much whitespace, however looking back I
+like the scale and the amount of whitespace. I think I might have been to
+focused on re-creating the original work at this point.</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.11.23/final.png?raw=truetarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.11.23/final.png?raw=true" />
+<p class="caption">Only decrease our radius 20% of the time (instead of every step) leading to longer tentacles, larger initial radius.g
+I also added some more &quot;poppy&quot; colors (the bright blues), I think these colors are what eventually led me away from this palette...</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.18.13/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.18.13/final.png?raw=trueg" />
+<p class="caption">New aspect ratio, smaller initial radius and a look at what outlining the circle would look like.</p>
+</div>
+<p>I decided to try a wider format/ratio (1:5) and I really liked it, sticking
+with it for quite a while. The space at the bottom of this image made me
+wonder what if all of the tentacles started from the top and reached down
+like tornados or the appendages of some monstrous celestial octopus.</p>
+</div>
+<div class="section" id="sky-tentacles">
+<h3>Sky Tentacles</h3>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.20.49/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.20.49/final.png?raw=trueg" />
+<p class="caption">Random grey color (rgb components all the same value) and a starting positions in the &quot;sky&quot;</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.22.27/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.22.27/final.png?raw=trueg" />
+<p class="caption">Narrowing down the range of greys made an interesting cloud like texture</p>
+</div>
+<p>I wasn't a huge fan of how this path ended up looking, so I went back towards my original goal.</p>
+</div>
+<div class="section" id="fill-it-up">
+<h3>Fill it Up</h3>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.31.54/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.31.54/final.png?raw=trueg" />
+<p class="caption">Filling up the canvas with tentacles</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.33.27/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.33.27/final.png?raw=trueg" />
+<p class="caption">Some color variation</p>
+</div>
+<p>I really liked the spots of white (or near white) so I decided to make many
+more circles white by adding a bunch of copies of white to the color list I
+was picking from.</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.35.30/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.35.30/final.png?raw=trueg" />
+<p class="caption">Trying to create some &quot;space&quot; with white circles, I really liked this and revisited it later</p>
+</div>
+<p>I decided to try and add whitespace in a different way by adding a chance to
+stop the progression of tentacles which increased as they got closer to the
+edges of the canvas</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.44.20/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.44.20/final.png?raw=trueg" />
+<p class="caption">Interesting dot pattern along the edge, but not very clean</p>
+</div>
+</div>
+<div class="section" id="ball-o-worms">
+<h3>Ball o' Worms</h3>
+<p>I decided that if I wanted to really clean up the edge then I needed to not
+draw any tentacles that ended beyond the edge of the canvas. This made me
+change the way I drew the image. I would march the circle along it's path and
+store the parameters previously sent to the draw command then after it had
+completed if it hadn't gone beyond the edge of the canvas then I would draw
+it in full (otherwise I wouldn't draw it at all).</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.56.07/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2022.56.07/final.png?raw=trueg" />
+<p class="caption">Finally some space, but this looks a bit like a big tangle of worms. Now I only sometimes decrease the radius as we step.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.03.16/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.03.16/final.png?raw=trueg" />
+<p class="caption">I decided to just really embrace the worms and make the worm colored. I
+also changed back to a square canvas and I am now starting all tentacles
+at the center of the canvas.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.08.41/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.08.41/final.png?raw=trueg" />
+<p class="caption">Let's try some less wormy colors...g
+I like the two worms tangled on each other in the bottom right and the one that seems interested at the top right.</p>
+</div>
+</div>
+<div class="section" id="less-wormy-please">
+<h3>Less Wormy Please</h3>
+<p>Back to our original &quot;frame full of circles&quot; motif, enough of these worms.</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.20.52/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.20.52/final.png?raw=trueg" />
+<p class="caption">Stop starting in the centerg</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.25.59/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.25.59/final.png?raw=trueg" />
+<p class="caption">Let's be looser on that &quot;out of bounds&quot; rule, as long as they don't go
+too far out of the canvas... Also let's stop with this 100% black or
+white background.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.26.28/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.26.28/final.png?raw=trueg" />
+<p class="caption">I like this white on a grey background...</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.27.46/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.27.46/final.png?raw=trueg" />
+<p class="caption">I bet with less worms it will look more like it's cut out of the background</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.28.33/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.28.33/final.png?raw=trueg" />
+<p class="caption">What about just white... Maybe a bit too hard to see, what if I add back the outline...</p>
+</div>
+</div>
+<div class="section" id="horns-and-rope">
+<h3>Horns and Rope</h3>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.29.24/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.29.24/final.png?raw=trueg" />
+<p class="caption">Back to worms, or horns? Starting everyone in the center of the canvas again.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.36.41/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.36.41/final.png?raw=trueg" />
+<p class="caption">Maybe sometimes let's increase the radius</p>
+</div>
+<p>I didn't really like how the increasing radius looked. These circles were
+starting to look less like worms and more like rope to me, let's see what we
+can do to make it more ropey.</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.38.00/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.38.00/final.png?raw=trueg" />
+<p class="caption">Let's make it less likely to decrease the radius (and stop that increase
+the radius business), since it's less likely you'll stop before hitting
+the edge of the canvas just stop drawing once you're about to be
+deativated.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.39.30/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.39.30/final.png?raw=trueg" />
+<p class="caption">What does the life of just one of these look like? Brought back the chance to increase radius.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.44.11/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.44.11/final.png?raw=trueg" />
+<p class="caption">I need more rope! Let's make it even ropeier by making the outline yellowish.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.45.01/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.45.01/final.png?raw=trueg" />
+<p class="caption">I know I said less worm-like, but let's bring back the if you leave the canvas don't draw rule.</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.47.07/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.47.07/final.png?raw=trueg" />
+<p class="caption">What if I make the fill the same as the background color...</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.48.19/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.48.19/final.png?raw=trueg" />
+<p class="caption">More colors for the outline</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.50.16/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.50.16/final.png?raw=trueg" />
+<p class="caption">More and bigger</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.53.50/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.53.50/final.png?raw=trueg" />
+<p class="caption">Let's always draw the biggest arms first so they end up in the background</p>
+</div>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.58.07/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.58.07/final.png?raw=trueg" />
+<p class="caption">What do flat colors look like...</p>
+</div>
+</div>
+<div class="section" id="paint-blobs">
+<h3>Paint Blobs</h3>
+<p>Kind of reminds me of paint, let's make the individual arms much smaller and stop starting all of them in the center</p>
+<div class="figure">
+<img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.59.16/final.png?raw=truegtarget:https://github.com/jChapman/interestingCircles/blob/master/2018-05-14%2023.59.16/final.png?raw=trueg" />
+<p class="caption">I also need a few more than before since they're so much smaller...</p>
+</div>
+<div class="figure">
+<a class="reference external image-reference" href="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.03.16/final.png?raw=true"><img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.03.16/final.png?raw=true" /></a>
+<p class="caption">Longer! More colors! Stop drawing again when we hit the edge</p>
+</div>
+<div class="figure">
+<a class="reference external image-reference" href="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.05.26/final.png?raw=true"><img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.05.26/final.png?raw=true" /></a>
+<p class="caption">Different colors. Let the arms extend beyond the edge of the canvas</p>
+</div>
+<div class="figure">
+<a class="reference external image-reference" href="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.09.52/final.png?raw=true"><img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.09.52/final.png?raw=true" /></a>
+<p class="caption">Let the arms go on until the hit the edge! Just draw the outline instead of the fill.</p>
+</div>
+<p>I think just drawing the outline really gives this a graffiti-like feel</p>
+<div class="figure">
+<a class="reference external image-reference" href="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.28.21/final.png?raw=true"><img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.28.21/final.png?raw=true" /></a>
+<p class="caption">Back to the fill, but a much wider canvas</p>
+</div>
+<div class="figure">
+<a class="reference external image-reference" href="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.28.43/final.png?raw=true"><img alt="" src="https://github.com/jChapman/interestingCircles/blob/master/2018-05-15%2000.28.43/final.png?raw=true" /></a>
+<p class="caption">Now back to the outline with that same larger canvas</p>
+</div>
+<p>I love being able to trace (with my eyes) the path of these long tubes. I
+think the filled one has a nice sense of depth, the outline only one looks a
+bit too busy to me (almost dirty).</p>
+</div>
+</div>
+<div class="section" id="final-thoughts">
+<h2>Final Thoughts</h2>
+<p>While many of these works are interesting there's nothing that I'm really proud or satisfied with.g
+That being said, I had a blast working on this and looking back gave me a couple of ideas for the future.
+I enjoy having a rough goal in mind, but not being afraid to go wherever I feel like the work takes me.</p>
+<p>I still struggle with color, for the majority of the pictures I chose
+randomly from a set of predefined colors (that I chose) and I find it a pain
+to pick out colors. I wonder if I can programmatically pick some starting
+from a base color or something similar. I really like grey backgrounds,
+although the white ones really make the pictures &quot;blend in&quot; (especially on
+this webpage), I should experiment more with background color. I also enjoy
+non-square canvases or very elongated ones, I think I should try more that
+have long vertical spaces.</p>
+<p>What do you think? Any favorites? Any tips on color?</p>
+</div>
+
+    </article>
+
+        <div class="tags">
+            <p>tags: <a href="http://superfluoussextant.com/tag/programming.html">programming</a>, <a href="http://superfluoussextant.com/tag/art.html">art</a>, <a href="http://superfluoussextant.com/tag/python.html">python</a>, <a href="http://superfluoussextant.com/tag/pil.html">PIL</a>, <a href="http://superfluoussextant.com/tag/pillow.html">Pillow</a></p>
+        </div>
+
+    <hr>
+
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'superfluoussextant';
+                var disqus_identifier = 'circleCycle.html';
+                var disqus_url = 'http://superfluoussextant.com/circleCycle.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//superfluoussextant.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                            <li>
+                                <a href="http://jordan-chapman.com">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/supersextant">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/jChapman">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+<p class="copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a>. <br />        &copy;  Jordan Chapman
+</p>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="http://superfluoussextant.com/theme/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://superfluoussextant.com/theme/js/bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="http://superfluoussextant.com/theme/js/clean-blog.min.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-82486268-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+    var disqus_shortname = 'superfluoussextant';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+
+</html>
