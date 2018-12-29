@@ -1,0 +1,6 @@
+[submodule "templates/cc-tools"]
+	path = templates/cc-tools
+	url = https://github.com/hlapp/cc-tools
+[submodule "themes/pelican-clean-blog"]
+	path = themes/pelican-clean-blog
+	url = https://github.com/gilsondev/pelican-clean-blog.git
